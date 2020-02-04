@@ -1,0 +1,42 @@
+<%- include('../includes/head.ejs') %>
+  <body>
+      
+    <%- include('../includes/adminnavigation.ejs') %>
+
+     
+   <div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 my-5">
+            <div class="card card-body">
+                  <div class="card-header text-light bg-secondary">
+                <h5> All polls list</h5>
+                  </div>
+
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Poll Name</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <% for(let p of polls) { %>
+                    <tbody>
+                      <tr>
+                        <td><%= p.title %></td>
+                        <td>
+                          <form action="/poll-delete" method="post">
+                            <input type="hidden" value="<%= p._id %>" name="pollId">
+                            <button class="btn" type="submit">Delete</button>
+                          </form>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <% } %>
+                  </table>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+    <%- include('../includes/end.ejs') %>

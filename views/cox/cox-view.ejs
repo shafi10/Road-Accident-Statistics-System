@@ -1,0 +1,115 @@
+<%- include('../includes/head.ejs') %>
+  <body>
+      
+    <%- include('../includes/adminnavigation.ejs') %>
+
+     
+    <div class="container py-3">
+      <div class="jumbotron">
+        <div class="card text-white bg-secondary">
+          <div class="card-header">
+            <h2>Dhaka Cox`s Bazar highway road crash Statistics</h2>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Number of accident with month name</h4>
+            <table class="table table-hover table-bordered">
+              <thead>
+                <tr>
+                  <th>Number of Accident</th>
+                  <th>Month</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <% for(let r of result) { %>
+              <tbody>
+                <tr>
+                  <td><%=r.monthAccident %></td>
+                  <td><%= r.month %></td>
+                  <td>
+                      <form action="/cox/edit/<%= r._id %>" method="post">
+                        <input type="submit" class="btn  btn-success" value="Update">
+                      </form>
+                    <!--<a class="btn" href="/cox/edit/<%= r._id %>">Update</a>-->
+                  </td>
+                </tr>
+              </tbody>
+              <% } %>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+      <div class="container py-3">
+        <div class="jumbotron">
+          <div class="card text-white bg-success">
+            <div class="card-header">
+              <h2>Dhaka Cox`s Bazar highway road crash Statistics</h2>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Number of accident with bus name</h4>
+              <table class="table table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Accident</th>
+                    <th>Bus Name</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <% for(let r of result) { %>
+                <tbody>
+                  <tr>
+                    <td><%=r.busAccident %></td>
+                    <td><%= r.busName %></td>
+                    <td>
+                        <form action="/cox/editt/<%= r._id %>" method="post">
+                          <input type="submit" class="btn  btn-success" value="Update">
+                        </form>
+                      <!--<a class="btn" href="/cox/editt/<%= r._id %>">Update</a>-->
+                    </td>
+                  </tr>
+                </tbody>
+                <% } %>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container py-3">
+        <div class="jumbotron">
+          <div class="card text-white bg-primary">
+            <div class="card-header">
+              <h2>Dhaka Cox`s Bazar highway road crash Statistics</h2>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Number of accident with location name</h4>
+              <table class="table table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Accident</th>
+                    <th>Location Name</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <% for(let r of result) { %>
+                <tbody>
+                  <tr>
+                    <td><%=r.locationAccident %></td>
+                    <td><%= r.location %></td>
+                    <td>
+                        <form action="/cox/edittt/<%= r._id %>" method="post">
+                          <input type="submit" class="btn  btn-success" value="Update">
+                        </form>
+                      <!--<a class="btn" href="/cox/edittt/<%= r._id %>">Update</a>-->
+                    </td>
+                  </tr>
+                </tbody>
+                <% } %>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <%- include('../includes/end.ejs') %>

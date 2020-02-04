@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+        <a class="navbar-brand" href="/">
+          <i class="fa fa-ambulance" aria-hidden="true"></i>
+          Home
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/info">Information <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Chart
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/arichachart">Dhaka-Aricha</a>
+                  <a class="dropdown-item" href="/sylhet/chart">Dhaka-Sylhet</a>
+                  <a class="dropdown-item" href="/coxchart">Dhaka-Cox`s Bazar</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/polls">Polls</a>
+              </li>
+    
+          </ul>
+        </div>
+        <div class="collapse navbar-collapse " id="navbarNav">
+          <ul class="navbar-nav ml-auto ">
+              <% if(authenticated) { %>
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard"><b>Dashboard</b></a>
+              </li>
+              <% }  %>
+              
+            </ul>
+            </div>
+
+      </nav>

@@ -1,0 +1,67 @@
+
+      <div class="">
+          <div class="card text-left ">
+              <div class="card-header bg-success">
+                  <h3> Dhaka Aricha highway road crash chart number of accident with bus name</h3>
+                </div>
+            <div class="card-body">
+                <div id="chartt"></div>
+            </div>
+          </div>
+        </div>
+
+      <script>
+
+        const urll = 'http://localhost:3000/aricha/chart';
+        fetch(urll)
+          .then(res => {
+            if (!res.ok) {
+              throw new Error(res.statusText);
+  
+            }
+            return res.json();
+  
+          })
+          .then(data => {
+            let aricha = data;
+            let arichaInfo = [];
+  
+            aricha.forEach(arich => {
+              arichaInfo.push([arich.busName, parseInt(arich.busAccident)]);
+  
+            });
+  
+            // creates chart const with array
+            const chart = {
+              type: "bar3d",
+               plot: {
+                 aspect: "cylinder",
+                 styles: [ "red", "orange", "yellow", "green", "blue", "purple", "brown", "black", "purple", "brown", "black" ]
+               },
+               scaleX: {
+        // Scale label with unicode character
+        label: { text: 'Bus Name' }
+      },
+      scaleY: {
+        // Scale label with unicode character
+        label: { text: 'Number of accidents' }
+      },
+              series: [
+                {
+                  values: arichaInfo
+                }
+              ]
+            };
+  
+            // renders zingchart to the page
+            zingchart.render({
+              id: 'chartt',
+              data: chart,
+              height: '100%',
+              width: '100%'
+            });
+  
+          })
+          .catch(error => console.log('fetch error'));
+  
+      </script>

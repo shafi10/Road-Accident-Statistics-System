@@ -1,0 +1,31 @@
+<%- include('../includes/head.ejs') %>
+  <body>
+      
+    <%- include('../includes/navigation.ejs') %>
+
+
+      <div class="container py-5">
+        <h1 class="bg-warning text-center py-2">Enter email for reset password</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 mx-3 py-3">
+            <% if(errorMessage) { %>
+            <div class="bg-danger text-center"> <%= errorMessage %></div>
+            <% } %>
+          <form action="/reset"  method="post">
+            <div class="form-group">
+              <label for="email">E-Mail</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Reset Password</button>
+          </form>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <%- include('../includes/end.ejs') %>

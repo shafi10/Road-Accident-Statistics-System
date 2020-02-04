@@ -1,0 +1,48 @@
+<%- include('../includes/head.ejs') %>
+  <body>
+      
+    <%- include('../includes/navigation.ejs') %>
+
+    <div class="container py-3">
+      <div class="text-center bg-warning">
+        <% for(r of user) {%>
+          <h1>Welcome <%=  r.name %></h1>
+          <% } %>
+      </div>
+    </div>
+
+    <% if(result.length>0){ %>
+
+    <div class="container py-1">
+        <div class="jumbotron">
+            <div class="bg-warning text-center">
+                <h2>Your Submitted Information </h2>     
+              </div>
+          <div class="row">
+              <% for(let r of result) { %>
+          <div class="col-md-6 py-2">
+          <div class="card text-white bg-secondary md-4">
+              <img class="card-img-top" src="<%=r.imageUrl %>" alt="something">
+            <div class="card-body">
+                <p>Road Name: <%=r.roadname %></p>
+                <p>Number of accident: <%= r.noaccident %></p>
+                <p>Location: <%= r.location %></p>
+                <p>Bus Name: <%= r.busname %></p>
+                <p>Month: <%= r.month %></p>
+              </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+        </div>
+      </div> 
+      <% } else { %>
+        <div class="container py-5">
+          <div class="jumbotron text-center">
+              <h1>No Information Found! </h1>
+          </div>
+        </div>
+        <% } %>
+
+
+    <%- include('../includes/end.ejs') %>

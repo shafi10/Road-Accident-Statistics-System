@@ -1,0 +1,74 @@
+
+
+
+<div class="container">
+    <div class="card text-left bg-light">
+        <div class="card-header bg-secondary">
+            <h3> Dhaka Sylhet highway road crash chart number of accident with location</h3>
+          </div>
+      <div class="card-body">
+          <div id="chart3"></div>
+      </div>
+    </div>
+  </div>
+
+ 
+ <script>
+
+   const url3 = 'http://localhost:3000/sylhet/chartData';
+   fetch(url3)
+
+     .then(res => {
+       if (!res.ok) {
+
+         throw new Error(res.statusText);
+
+       }
+
+       return res.json();
+
+     })
+
+     .then(data => {
+       let aricha = data;
+
+       let arichaInfo = [];
+
+       aricha.forEach(arich => {
+
+         arichaInfo.push([arich.location, parseInt(arich.locationAccident)]);
+
+       });
+       const chart = {
+         type: 'bar',
+         plot: {
+          'border-radius': "9px",
+                 styles: ["black","green", "blue", "purple","brown","red", "orange", "yellow", "brown", "black", "purple", "brown" ]
+               },
+            scaleX: {
+        // Scale label with unicode character
+        label: { text: 'Location Name' }
+      },
+      scaleY: {
+        // Scale label with unicode character
+        label: { text: 'Number of accidents' }
+      },
+         series: [
+           {
+             values: arichaInfo
+           }
+         ]
+       };
+
+       // renders zingchart to the page
+       zingchart.render({
+         id: 'chart3',
+         data: chart,
+         height: '100%',
+         width: '100%'
+       });
+
+     })
+     .catch(error => console.log('fetch error'));
+
+ </script>

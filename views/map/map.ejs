@@ -1,0 +1,272 @@
+<%- include('../includes/head.ejs') %>
+  <body>
+      
+    <%- include('../includes/chartnavigation.ejs') %>
+
+<div class="container py-3 text-center">
+    <div class="row bg-dark text-warning text-center">
+        <div class="col-md-12 text-center animated slideInLeft">
+            <h3 class="">Click the markar to see the location accidents in google map</h3>
+        </div>
+    </div>
+</div>
+    <div class="container">
+        <div class="row">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script>
+
+
+        function initMap() {
+               
+               var options = {
+                   zoom:8,
+                   center:{lat: 23.8103, lng: 90.4125}
+               }
+        
+               var map = new google.maps.Map(document.getElementById('map'), options);
+          
+          
+          
+               //Aricha api
+
+           var url = 'http://localhost:3000/Maparicha';
+        
+        fetch(url)
+        .then(res => {
+                  if (!res.ok) {
+        
+                    throw new Error(res.statusText);
+        
+                  }
+                  return res.json();
+        
+                })
+          .then(function(data){
+            var mark = data;
+            console.log(mark)
+                  mark.forEach(da => {
+                    var marker = new google.maps.Marker({
+                     position: new google.maps.LatLng(da.lat , da.lng),
+                     //icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/library_maps.png',
+                      map:map
+                   })
+        
+                  
+                   var info = new google.maps.InfoWindow({
+                     content:`<h1>Number of Accident:  ${da.locationAccident}  </h1>
+                     <h3> Location Name: ${da.location}</h3>
+                     `
+                   })
+        
+                   marker.addListener('click',function(){
+                     info.open(map,marker)
+                   })
+                  });
+          })
+              
+
+
+        var urll = 'http://localhost:3000/Maparicha1';
+        
+        fetch(urll)
+        .then(res => {
+                  if (!res.ok) {
+        
+                    throw new Error(res.statusText);
+        
+                  }
+                  return res.json();
+        
+                })
+          .then(function(data){
+            var mark = data;
+            console.log(mark)
+                  mark.forEach(da => {
+                    var marker = new google.maps.Marker({
+                     position: new google.maps.LatLng(da.lat , da.lng),
+                     icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                      map:map
+                   })
+        
+                  
+                   var info = new google.maps.InfoWindow({
+                     content:`<h1>Number of Accident:  ${da.locationAccident}  </h1>
+                     <h3> Location Name: ${da.location}</h3>
+                     `
+                   })
+        
+                   marker.addListener('click',function(){
+                     info.open(map,marker)
+                   })
+                  });
+          })    
+          
+          //Sylhet API 
+          var sylhet = 'http://localhost:3000/Mapsylhet';
+        
+        fetch(sylhet)
+        .then(res => {
+                  if (!res.ok) {
+        
+                    throw new Error(res.statusText);
+        
+                  }
+                  return res.json();
+        
+                })
+          .then(function(data){
+            var mark = data;
+            console.log(mark)
+                  mark.forEach(da => {
+                    var marker = new google.maps.Marker({
+                     position: new google.maps.LatLng(da.lat , da.lng),
+                     //icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/library_maps.png',
+                      map:map
+                   })
+        
+                  
+                   var info = new google.maps.InfoWindow({
+                     content:`<h1>Number of Accident:  ${da.locationAccident}  </h1>
+                     <h3> Location Name: ${da.location}</h3>
+                     `
+                   })
+        
+                   marker.addListener('click',function(){
+                     info.open(map,marker)
+                   })
+                  });
+          })
+
+          var sylhet1 = 'http://localhost:3000/Mapsylhet1';
+        
+        fetch(sylhet1)
+        .then(res => {
+                  if (!res.ok) {
+        
+                    throw new Error(res.statusText);
+        
+                  }
+                  return res.json();
+        
+                })
+          .then(function(data){
+            var mark = data;
+            console.log(mark)
+                  mark.forEach(da => {
+                    var marker = new google.maps.Marker({
+                     position: new google.maps.LatLng(da.lat , da.lng),
+                     icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                      map:map
+                   })
+        
+                  
+                   var info = new google.maps.InfoWindow({
+                     content:`<h1>Number of Accident:  ${da.locationAccident}  </h1>
+                     <h3> Location Name: ${da.location}</h3>
+                     `
+                   })
+        
+                   marker.addListener('click',function(){
+                     info.open(map,marker)
+                   })
+                  });
+          })
+
+          //COX API
+          var cox = 'http://localhost:3000/Mapcox';
+        
+        fetch(cox)
+        .then(res => {
+                  if (!res.ok) {
+        
+                    throw new Error(res.statusText);
+        
+                  }
+                  return res.json();
+        
+                })
+          .then(function(data){
+            var mark = data;
+            console.log(mark)
+                  mark.forEach(da => {
+                    var marker = new google.maps.Marker({
+                     position: new google.maps.LatLng(da.lat , da.lng),
+                     //icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/library_maps.png',
+                      map:map
+                   })
+        
+                  
+                   var info = new google.maps.InfoWindow({
+                     content:`<h1>Number of Accident:  ${da.locationAccident}  </h1>
+                     <h3> Location Name: ${da.location}</h3>
+                     `
+                   })
+        
+                   marker.addListener('click',function(){
+                     info.open(map,marker)
+                   })
+                  });
+          })
+
+          var cox1 = 'http://localhost:3000/Mapcox1';
+        
+        fetch(cox1)
+        .then(res => {
+                  if (!res.ok) {
+        
+                    throw new Error(res.statusText);
+        
+                  }
+                  return res.json();
+        
+                })
+          .then(function(data){
+            var mark = data;
+            console.log(mark)
+                  mark.forEach(da => {
+                    var marker = new google.maps.Marker({
+                     position: new google.maps.LatLng(da.lat , da.lng),
+                     icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                      map:map
+                   })
+        
+                  
+                   var info = new google.maps.InfoWindow({
+                     content:`<h1>Number of Accident:  ${da.locationAccident}  </h1>
+                     <h3> Location Name: ${da.location}</h3>
+                     `
+                   })
+        
+                   marker.addListener('click',function(){
+                     info.open(map,marker)
+                   })
+                  });
+          })
+
+          //End COX API
+   
+          
+        }  
+
+
+        </script>
+
+
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmf8_sn_nsfRm1jNeaQ6X80OktwakROuA&callback=initMap"
+  type="text/javascript"></script>
+
+
+  <section  class="py-5">
+    <div class="container py-5">
+      <div class="row">
+        <h2>Default marker for number of accidents greater than 50</h2>
+         <h2>Flag marker for number accidents less than 50</h2>
+      </div>
+    </div>
+  </section>
+
+    <%- include('../includes/end.ejs') %>

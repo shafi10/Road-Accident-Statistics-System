@@ -1,0 +1,33 @@
+<%- include('../includes/head.ejs') %>
+  <body>
+      
+    <%- include('../includes/adminnavigation.ejs') %>
+
+
+      <div class="container py-5 ">
+        <h1 class="bg-warning text-center py-2"> Update data</h1>
+      <div class="container">
+        <div class="row ">
+          <div class="col-md-6 ml-5 py-3">
+          <form action="/cox/edit"  method="post">
+            <div class="form-group">
+                <label for="monthAccident">No of accident</label>
+                <input type="number" class="form-control" value="<%= result.monthAccident %>" id="monthAccident" name="monthAccident" placeholder="Enter no of month accident">
+              </div>
+              <div class="form-group">
+                <label for="month">Month</label>
+                <input type="text" class="form-control" id="month" value="<%= result.month %>" name="month" disabled>     
+              </div>
+              <input type="hidden" value="<%= result._id %>" name="coxId">
+            <button type="submit" class="btn btn-outline-primary">Update</button>
+          </form>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <%- include('../includes/end.ejs') %>

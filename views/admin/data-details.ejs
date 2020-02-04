@@ -1,0 +1,37 @@
+<%- include('../includes/head.ejs') %>
+  <body>
+        <%- include('../includes/adminnavigation.ejs') %>
+
+
+      <div class="container py-5 ">
+        <h1 class="bg-warning text-center py-2">Information Details </h1>
+        <div class="row">
+            <div class="col-md-12 py-2">
+            <div class="card md-4">
+              <div class="card-body text-center">
+                  <div class="card-header text-info">
+                      <h3 class="text-dark">Informations</h3>
+                    </div>
+                
+                  <h4 class="text-primary">User who send the data:</h4>
+                  <h6>User Name: <%=result.userId.name%></h6>
+                  <h6>User Email: <%=result.userId.email%></h6>
+                  <h6>User Phone: <%=result.userId.phone%></h6>
+                  <h4 class="text-primary">Accident Information:</h4>
+                  <h6>Name: <%=result.roadname%></h6>
+                  <h6>Location Name: <%= result.location %></h6>
+                  <h6>Bus Name: <%= result.busname %> </h6>
+                  <h6>Number of accident: <%= result.noaccident %></h6>
+                  <h6>Data Submitted Time: <%= result.date %></h6>
+                              
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <%- include('../includes/end.ejs') %>

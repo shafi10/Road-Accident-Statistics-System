@@ -1,0 +1,45 @@
+<%- include('../includes/head.ejs') %>
+  <body>
+      
+    <%- include('../includes/navigation.ejs') %>
+
+
+      <div class="container py-5 ">
+        <h1 class="bg-warning text-center py-2 animated slideInDown">User Login</h1>
+      <div class="container">
+        <div class="row ">
+          <div class="col-md-6 ml-5 py-3 animated slideInLeft">
+            <% if(errorMessage) { %>
+            <div class="alert text-danger text-center"> <%= errorMessage %></div>
+            <% } %>
+          <form action="/login"  method="post">
+            <div class="form-group">
+              <label for="email">E-Mail</label>
+              <input type="email" class="form-control <%= error.email ? 'is-invalid':''  %>" id="email" name="email" placeholder="Enter Email">
+              <div class="invalid-feedback">
+                <%= error.email && error.email %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control <%= error.password ? 'is-invalid':''  %>" id="password" name="password" placeholder="Enter Password">
+              <div class="invalid-feedback">
+                <%= error.password && error.password %>
+              </div>     
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Login</button>
+          </form>
+
+          <div class="text-center">
+            <a href="/reset"> Reset Password </a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <%- include('../includes/end.ejs') %>

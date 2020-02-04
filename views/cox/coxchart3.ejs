@@ -1,0 +1,70 @@
+
+
+ <div class="container">
+    <div class="card text-left ">
+        <div class="card-header bg-success">
+            <h3> Dhaka Cox Bazar highway road crash chart number of accident with location</h3>
+          </div>
+      <div class="card-body">
+          <div id="chartc"></div>
+      </div>
+    </div>
+  </div>
+
+
+ <script>
+
+   const urlc = 'http://localhost:3000/cox/chart';
+   fetch(urlc)
+
+     .then(res => {
+       if (!res.ok) {
+
+         throw new Error(res.statusText);
+
+       }
+
+       return res.json();
+
+     })
+
+     .then(data => {
+       let aricha = data;
+
+       let arichaInfo = [];
+
+       aricha.forEach(arich => {
+
+         arichaInfo.push([arich.location, parseInt(arich.locationAccident)]);
+
+       });
+       const chart = {
+         type: 'bar',
+         plot: {
+                 styles: [ "green", "blue", "purple","red", "orange", "yellow", "brown", "black", "purple", "brown", "black" ]
+               },
+            scaleX: {
+        label: { text: 'Location Name' }
+      },
+      scaleY: {
+        label: { text: 'Number of accidents' }
+      },
+         series: [
+           {
+             values: arichaInfo
+           }
+         ]
+       };
+
+       // renders zingchart to the page
+       zingchart.render({
+         id: 'chartc',
+         data: chart,
+         height: '100%',
+         width: '100%'
+       });
+
+     })
+     .catch(error => console.log('fetch error'));
+
+ </script>

@@ -1,0 +1,57 @@
+<%- include('../includes/head.ejs') %>
+  <body>
+      
+    <%- include('../includes/adminnavigation.ejs') %>
+
+
+      <div class="container py-5 ">
+        <h1 class="bg-warning text-center py-2"> Submit Dhaka-Aricha highway information </h1>
+      <div class="container">
+        <div class="row ">
+          <div class="col-md-6 ml-5 py-3">
+          <form action="/sylhet"  method="post">
+            <div class="form-group">
+              <label for="monthAccident">No of month accident</label>
+              <input type="number" class="form-control" id="monthAccident" name="monthAccident" placeholder="Enter no of month accident">
+            </div>
+            <div class="form-group">
+              <label for="month">Month</label>
+              <input type="text" class="form-control" id="month" name="month" placeholder="Enter month name">     
+            </div>
+            <div class="form-group">
+                <label for="busAccident">No of bus accident</label>
+                <input type="number" class="form-control" id="busAccident" name="busAccident" placeholder="Enter no of bus accident">
+              </div>
+              <div class="form-group">
+                <label for="busName">Bus name</label>
+                <input type="text" class="form-control" id="busName" name="busName" placeholder="Enter bus Name">     
+              </div>
+              <div class="form-group">
+                <label for="locationAccident">No of location accident</label>
+                <input type="number" class="form-control" id="locationAccident" name="locationAccident" placeholder="Enter no of bus location Accident">
+              </div>
+              <div class="form-group">
+                <label for="location">Location Name</label>
+                <input type="text" class="form-control" id="location" name="location" placeholder="Enter bus location ">     
+              </div>
+              <div class="form-group">
+                <label for="location"> Lat </label>
+                <input type="text" class="form-control " id="lat" name="lat" placeholder="Enter location Lat"> 
+                   
+              </div>
+              <div class="form-group">
+                <label for="location">Lng</label>
+                <input type="text" class="form-control" id="lng" name="lng" placeholder="Enter location Lng">     
+              </div>
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+          </form>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <%- include('../includes/end.ejs') %>

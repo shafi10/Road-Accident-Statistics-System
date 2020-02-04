@@ -1,0 +1,29 @@
+<%- include('../includes/head.ejs') %>
+  <body>
+      
+    <%- include('../includes/chartnavigation.ejs') %>
+
+
+   <div class="container">
+      <div class="row">
+          <div class="col-md-8 offset-md-2 my-5">
+              <div class="card card-body">
+                    <div class="card-header text-light bg-secondary">
+                  <h5> All polls list</h5>
+                    </div>
+                      <ul class="list-group">
+                        <% for(let p of polls) { %>
+                            <li class="list-group-item">
+                                <a href="/polls/<%= p._id %>"><%= p.title %></a>
+                            </li>
+
+                            <% } %>
+                      </ul>
+              </div>
+          </div>
+      </div>
+   </div>
+
+
+
+    <%- include('../includes/end.ejs') %>
